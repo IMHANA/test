@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JS Ajax</title>
+</head>
+<body>
+	<h1>서버로부터 응답 받은 결과</h1>
+	<div>
+		<h2>우유</h2>
+		<h2>1000</h2>
+	</div>
+	<div>
+		<h2>음료수</h2>
+		<h2>800</h2>
+	</div>
+	<div>
+		<h2>녹차</h2>
+		<h2>1500</h2>
+	</div>
+	<div>
+		<h2>커피</h2>
+		<h2>2000</h2>
+	</div>
+</body>
+</html>

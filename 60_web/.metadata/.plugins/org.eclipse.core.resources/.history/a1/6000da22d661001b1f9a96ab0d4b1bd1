@@ -1,0 +1,38 @@
+<%@page import="com.bc.mybatis.ShopVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%-- 전달받은 품목코드(category) 사용해서 DB데이터 조회하고 화면표시 --%>
+<%
+	//전달받은 파라미터 값 확인(추출)
+	String category = request.getParameter("category");
+
+	//DB 데이터 조회
+	//DAO 사용패턴
+%>
+	<%-- DAO객체를 session 에 저장해서 사용(세션이 유지되는 동안) --%>
+	<jsp:useBean id="dao" class="com.bc.mybatis.ShopDAO" scope="session"/>
+<%
+	List<ShopVO> list = dao.list(category);
+	System.out.println("list : " + list);
+	for (ShopVO vo : list) {
+		System.out.println("list vo : " + vo);
+	}
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>제품목록</title>
+<link href="css/menu.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<%@ include file="common/menu.jspf" %>
+
+	<%-- 제품목록 표시 영역 --%>
+	<h1>제품목록표시영역</h1>
+	
+</body>
+</html>

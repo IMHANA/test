@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%-- 장바구니 (cart)에 있는 제품목록을 화면에 표시 --%>
+
+<jsp:useBean id="cart" class="com.bc.mybatis.Cart" scope="session" />
+<%
+	//카트에서 목록 꺼내기
+	cart.getList();
+%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	
+</body>
+</html>

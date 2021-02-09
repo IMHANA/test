@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;03_scope/WebContent/ex01_sessionRemovejsp.jsp&apos; to &apos;ex01_sessionRemove.jsp&apos;" description="Rename resource &apos;ex01_sessionRemovejsp.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/ex01_sessionRemovejsp.jsp" name="ex01_sessionRemove.jsp" stamp="1611294628273" updateReferences="true"/>
+</session>

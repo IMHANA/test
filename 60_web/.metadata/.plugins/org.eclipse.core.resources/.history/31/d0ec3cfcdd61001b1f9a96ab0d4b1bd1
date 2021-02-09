@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%-- 전달받은 제품번호를 사용해서 DB데이터 조회 후 화면 표시 --%>
+<%
+	//전달받은 값 추출(파라미터 값)
+	String p_num = request.getParameter("p_num");
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>제품상세 정보</title>
+</head>
+<body>
+	<%@ include file="common/menu.jspf" %>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>EL 연산자</title>
+</head>
+<body>
+	<h1>EL : 문자열연산자, 비교연산자, 논리연산자</h1>
+	<h2>문자열 붙이기</h2>
+	<p>"Hello" + "World!!!" ---> "Hello" + "World!!!"<p>
+	<p>표현식 : ""Hello" + "World!!!" ---> <%="Hello" + "World!!!" %></p>
+	
+</body>
+</html>

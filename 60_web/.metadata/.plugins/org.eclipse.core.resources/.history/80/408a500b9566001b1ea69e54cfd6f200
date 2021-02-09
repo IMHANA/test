@@ -1,0 +1,66 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%-- 전달받은 데이터를 사용해서 화면에 표시하고 수정 후 수정요청 처리
+	- 암호가 일치하면 : 수정요청처리 (DB연동작업) - modify_ok.jsp
+	- 암호가 불일치하면 : 암호확인 메시지 표시 --%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>게시글 수정</title>
+</head>
+<body>
+
+<div id="bbs">
+<form action="modify_ok.jsp" method="post" enctype="multipart/form-data" name="myForm">
+	<table>
+		<caption>게시글 수정</caption>
+		<tbody>
+			<tr>
+				<th>제목</th>
+				<td>
+					<input type="text" name="subject" size="45" title="제목"
+						value="${bvo.subject}">
+				</td>
+			</tr>
+			<tr>
+				<th>작성자</th>
+				<td>
+					<input type="text" name="writer" size="12" title="작성자"
+						value="${bvo.writer}">
+				</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td>
+					<textarea name="content" rows="8" cols="50" title="내용">${bvo.content}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<th>첨부파일</th>
+				<td>
+					<input type="file" name="file_name">${bvo.file_name}
+				</td>
+			</tr>
+			<tr>
+				<th>패스워드(확인용)</th>
+				<td>
+					<input type="password" name="pwd" size="12" title="password">
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2">
+					<input type="button" value="수정" onclick="sendData()">
+					<input type="reset" value="다시작성">
+					<input type="button" value="목록" onclick="list_go()">
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</form>
+</div>
+	
+</body>
+</html>

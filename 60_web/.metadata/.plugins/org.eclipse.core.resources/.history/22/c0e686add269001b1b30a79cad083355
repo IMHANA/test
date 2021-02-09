@@ -1,0 +1,22 @@
+package com.bc.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/getJsonMembers")
+public class GetJsonMembersController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//DB에서 데이터 조회 후 JSON 형식문자열 생성 후 응답처리
+	}
+       
+
+
+}

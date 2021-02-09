@@ -1,0 +1,45 @@
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%-- 전달받은 품목을 장바구니(list)에 담고 쇼핑페이지로 되돌아가기 --%>
+<%
+	// 1. 전달받은 데이터 확인
+	String product = request.getParameter("product");
+	
+	// 2. 장바구니에 담기
+	// 세션에 있으면 사용하고, 없으면 list 추가
+/* 	if(product == null) {
+		String name = URLEncoder.encode((String)session.getAttribute("username"), "UTF-8");
+		System.out.println("encoded name : " + name);
+		response.sendRedirect("ex03_shopping.jsp?name=" + name);
+		return;
+	} */
+	
+	if(product == null) {
+		//out.print("<script>alert('상품선택해라');history.back();</script>");
+		//return;
+	//}
+%>
+	<script>
+		alert("상품을 선택하세요!!");
+		history.back();
+	</script>
+<%
+ 	return;
+	} 
+
+	ArrayList<String> list = (ArrayList<String>)session.getAttribute("product_list");
+	if (list == null) {
+		list = new ArrayList<String>();	// 맨 처음 목록(장바구니) 만들기
+		session.setAttribute("product_list", list);	//최초 세션에 목록저장
+	}
+	list.add(product);	//목록(장바구니)에 추가
+	System.out.println("list : " + list);
+
+%>
+<script>
+	// 3. 페이지 전환
+	alert("[<%=product %>] 추가되었습니다.");
+	history.go(-1);	// 이전페이지로 이동 - history.back();
+</script>

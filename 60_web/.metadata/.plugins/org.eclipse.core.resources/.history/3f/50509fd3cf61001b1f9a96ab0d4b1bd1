@@ -1,0 +1,9 @@
+package com.bc.mybatis;
+
+public class shopDAO {
+	
+	public ShopDAO() {
+		System.out.println(">> ShopDAO 객체 생성");
+	}
+
+}

@@ -1,0 +1,20 @@
+<%@page import="com.bc.mybatis.DAO"%>
+<%@page import="com.bc.mybatis.CommVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+
+	CommVO cvo = new CommVO();
+	cvo.setWriter(request.getParameter("writer"));
+	cvo.setPwd(request.getParameter("pwd"));
+	cvo.setContent(request.getParameter("content"));
+	cvo.setC_idx(request.getParameter("b_idx"));
+	cvo.setIp(request.getRemoteAddr());
+	System.out.println(cvo);
+	
+	DAO.insertComment(cvo);
+	
+	String ss = session.getAttribute("cPage");
+	response.sendRedirect("view.jsp");
+%>

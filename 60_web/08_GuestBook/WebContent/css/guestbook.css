@@ -1,0 +1,26 @@
+<style>
+ 	#container {
+ 		width: 512px;
+ 		margin: auto;	/* 좌우정렬 */
+ 		/* border: 1px solid black; */
+ 	}
+ 	#container h2 { text-align: center; }
+ 	#container p { text-align: center; }
+ 	#container table {
+ 		width: 500px;
+ 		margin: 0 auto;
+ 		border: 1px solid black;
+ 		border-radius: 5px;
+ 		border-collapse: collapse;	/* 테이블간격 무너트리기 */
+ 	}
+ 	#container table th, #container table td { border: 1px solid black; }
+ 	#container table th {
+ 		background-color: #9cf;
+ 	}
+ 	#container table td {
+ 		/*text-align: center;	 테이블 안에 컬럼 내용 중앙정렬 */
+ 	}
+ 	#container .center { text-align: center; }
+ 	
+ 	
+</style>

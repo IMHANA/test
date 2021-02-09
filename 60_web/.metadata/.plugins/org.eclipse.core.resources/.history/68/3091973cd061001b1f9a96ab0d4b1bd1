@@ -1,0 +1,22 @@
+package com.bc.mybatis;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+public class ShopDAO {
+	
+	public ShopDAO() {
+		System.out.println(">> ShopDAO 객체 생성");
+	}
+	
+	//품목코드를 사용해서 제품 조회하고 List로 받기
+	public List<ShopVO> list(String category) {
+		//sql session객체를 만든다
+		SqlSession ss = DBService.getFactory().openSession();
+		ss.selectList("shop.list", category);
+	}
+	
+	
+	
+}

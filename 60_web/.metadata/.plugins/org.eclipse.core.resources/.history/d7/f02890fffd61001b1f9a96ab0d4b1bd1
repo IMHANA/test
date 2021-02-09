@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%-- 전달받은 제품 번호에 해당하는 품목을 장바수니(cart)에서 삭제처리 후 
+	장바구니 보기 페이지 이동  --%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	
+</body>
+</html>

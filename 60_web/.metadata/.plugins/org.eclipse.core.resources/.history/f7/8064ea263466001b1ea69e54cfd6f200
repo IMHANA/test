@@ -1,0 +1,11 @@
+<%@page import="com.bc.mybatis.CommVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+
+	CommVO cvo = new CommVO();
+	cvo.setWriter(request.getParameter("writer"));
+	cvo.setPwd(request.getParameter("pwd"));
+	
+%>

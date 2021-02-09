@@ -1,0 +1,42 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	Map<String, String> map = new HashMap<>();
+%>
+<script>
+	function go_login(form) {
+		alert("가입완료");
+		form.action = "login.jsp";
+		form.submit();
+	}
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>회원가입</title>
+</head>
+<body>
+	<form>
+	<fieldset>
+		<legend>회원가입</legend>
+		<table>
+		<tr>
+			<th>아이디 :</th>
+			<td><input type="text" name="id"></td>
+		</tr>
+		<tr>
+			<th>비밀번호 :</th>
+			<td><input type="text" name="passward"></td>
+		</tr>
+		<tr>
+			<td rowspan="2"><input type="button" value="join"
+				onclick="go_login(this.form)"></td>
+		</tr>
+		</table>
+	</fieldset>
+	</form>
+</body>
+</html>

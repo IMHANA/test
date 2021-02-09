@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX jQuery</title>
+</head>
+<body>
+	<h1>(jQuery)Ajax JSON 요청 처리</h1>
+	<button id="getDataBtn">JSON 데이터 가져오기(id, name)</button>
+	<hr>
+	<div id="dataDisp">가져온 데이터 출력될 영역</div>
+	<hr>
+	<h2>위쪽 영역에 Ajax에 의해 가져온 데이터 표시</h2>
+</body>
+</html>

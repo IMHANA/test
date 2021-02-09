@@ -1,0 +1,49 @@
+package com.bc.mybatis;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+//장바구니(카트) 역할 클래스
+public class Cart {
+	private List<ShopVO> list;	//카트에 담긴 제품 목록
+	private int total;	//카트에 담긴 전체 품목 가격 함계 금액
+	
+	public Cart() {
+		list = new ArrayList<ShopVO>();
+	}
+	
+	/** 장바구니에 담기 요청 처리 (카트에 제품 추가)
+	 *	list에 없으면 제품 추가
+	 *	list에 동일한 제품이 있으면 수량 1개 증가 처리
+	 */
+	public void addProduct(String p_num, ShopDAO dao ) {
+		//카트에 제품이 있는지 확인
+		ShopVO vo = findProduct(p_num);
+		if (vo == null) {	//카트에 제품이 없을때
+			vo = dao.selectOne(p_num);
+			vo.setQuant(1);	//카트에 물건 1개 담을 준비 (단일품목 금액 계산까지 완료)
+			list.add(vo);	//카트에 담기
+			total += vo.getP_saleprice();	//카트 total 재계산(제품하나 가격추가)
+		} else {	//카트에 제품이 있음 -> 수량 1 증가처리 -> 카트 total 재계산 처리
+			vo.etQuant(vo.getQuant() + 1);
+		}
+	}
+	
+	public ShopVO findProduct(String p_num) {
+		ShopVO vo = null;
+		Iterator<ShopVO> ite = list.iterator();
+		while (ite.hasNext()) {
+			ShopVO listVO = ite.next();
+			if (listVO.getP_num().equals(p_num)) {
+				vo = listVO;
+				break;
+			}
+		}
+		
+		return vo;
+	}
+	
+	
+	
+}

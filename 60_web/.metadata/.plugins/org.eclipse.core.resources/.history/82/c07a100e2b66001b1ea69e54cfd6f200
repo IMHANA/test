@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BBS">
+
+	<!--  전체 게시글 수 조회  -->
+	<select id="totalCount" resultType="_int">
+		SELECT COUNT(*) AS CNT FROM BBS_T
+	</select>
+	
+	
+	<!--  페이지에 표시할 데이터 조회 
+		parameterType="Map" : begin, end 값 전달하는 용도로 사용
+		key-value 형태의 Map 사용, 바인드 변수명이 key가 된다.
+	-->
+	<select id="list" resultType="com.bc.mybatis.BBSVO" parameterType="map">
+		SELECT *
+  		FROM( SELECT ROWNUM AS R_NUM, B.*
+       		FROM (SELECT *
+        			FROM BBS_T
+        			ORDER BY B_IDX DESC
+        		) B
+    		)
+  		WHERE R_NUM BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<!--  게시글 하나 조회(B_IDX 값으로) -->
+	<select id="one" parameterType="string" resultType="BBSVO">
+		SELECT B_IDX, SUBJECT, WRITER, CONTENT, FILE_NAME, ORI_NAME,
+			PWD, WRITE_DATE, IP, HIT
+		FROM BBS_T
+		WHERE B_IDX = #{b_idx}
+	</select>
+	
+	
+	<!--  게시글 입력  -->
+	<insert id="insert" parameterType="BBSVO">
+		INSERT INTO BBS_T (B_IDX, SUBJECT, WRITER, CONTENT, FILE_NAME, ORI_NAME, PWD, WRITE_DATE, IP, HIT)
+        VALUES (BBS_T_SEQ.nextval, #{subject}, #{writer}, #{content}, #{file_name}, #{ori_name}, #{pwd}, SYSDATE, #{ip}, 0)		   
+	</insert>
+	
+	<!--  조회수 1 증가 처리  -->
+	<update id="hit" parameterType="int">
+		UPDATE BBS_T
+		SET HIT = #{hit}
+		WHERE B_IDX = #{b_idx}
+	</update>
+	
+	<!-- ========= 댓글처리 ================ -->
+	<!--  게시글에 달린 댓글 조회 (검색) -->
+	<select id="commList" parameterType="string"
+			resultType="com.bc.mybatis.CommVO">
+		SELECT *
+		  FROM COMMENT_T
+		 WHERE B_IDX = #{b_idx}
+		 ORDER BY C_IDX DESC
+	</select>
+	
+	<!--  댓글 입력  -->
+	<insert id="c_insert" parameterType="com.bc.mybatis.CommVO">
+	
+	</insert>
+	
+</mapper>

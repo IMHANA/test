@@ -1,0 +1,30 @@
+<%@page import="com.bc.mybatis.ShopVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%-- 전달받은 제품번호를 사용해서 DB데이터 조회 후 화면 표시 --%>
+<%
+	//전달받은 값 추출(파라미터 값)
+	String p_num = request.getParameter("p_num");
+%>
+	<%-- 액션태그 useBean : 현재 지정한 scope(session) 상에 id명(dao)의
+	속성값이 있으면 가져다가 dao라는 로컬변수에 담아서 사용,
+	scope상에 없으면 클래스속성 타입의 객체를 생성하고 scope를 새로 등록. --%>
+	<jsp:useBean id="dao" class="com.bc.mybatis.ShopDAO" scope="session"/>
+<%
+	//DAO 객체(인스턴스) 사용해서 제품정보 조회 후 VO에 저장
+	ShopVO vo = dao.selectOne(p_num);
+	
+	System.out.println(">> content vo : " + vo);
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>제품상세 정보</title>
+<link href="css/menu.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<%@ include file="common/menu.jspf" %>
+</body>
+</html>

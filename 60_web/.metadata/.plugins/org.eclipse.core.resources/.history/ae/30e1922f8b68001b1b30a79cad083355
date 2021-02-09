@@ -1,0 +1,15 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String id = request.getParameter("id");
+	String pw = request.getParameter("pw");
+	String[] idString = request.getParameterValues("id");
+	String[] pqString = request.getParameterValues("pw");
+	//Map<String, String> map = request.getParameterMap();
+	
+	if (id == null) {
+		
+	}
+%>

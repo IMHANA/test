@@ -1,0 +1,6 @@
+package com.bc.model.command;
+
+public interface Command {
+	public String execute(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException;
+}

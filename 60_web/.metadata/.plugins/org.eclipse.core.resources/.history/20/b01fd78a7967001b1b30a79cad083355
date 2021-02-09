@@ -1,0 +1,72 @@
+package com.bc.frontcontroller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bc.model.DAO;
+import com.bc.model.vo.EmployeeVO;
+
+@WebServlet("/controller")
+public class FrontController extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println(">> FrontController.doGet() 실행~~");
+		// 파라미터 값 확인
+		String type = request.getParameter("type");
+		System.out.println(">type : " + type);
+		
+		// 작업 요청에 대한 처리
+		if ("all".equals(type)) {
+			//1. DB연결하고 데이터 가져오기
+			List<EmployeeVO> list = DAO.getList();
+			
+			//2. 응답페이지(list.jsp)에 데이터 전달(request 객체에 속성값으로 전달)
+			request.setAttribute("list", list);
+			
+			//3. 페이지 전환 - 응답할 페이지(list.jsp)로 포워딩(전환, 위임)
+			request.getRequestDispatcher("list.jsp").forward(request, response);
+		} else if ("dept".equals(type)) {
+			request.getRequestDispatcher("dept.jsp").forward(request, response);
+		} else if ("deptList".equals(type)) {
+			// 전달받은 부서코드로 DB데이터 조회 후 deptList.jsp 응답처리 (위임처리)
+			// 1. 전달받은 파라미터 값 (부서코드 : deptno) 추출
+			String deptno = request.getParameter("deptno"); 
+			
+			// 2. DB에서 해당 부서 (deptno)에 있는 직원 조회 (DAO 사용)
+			List<EmployeeVO> deptlist = DAO.getDept(deptno);
+			
+			// 3. 조회된 데이터를 응답페이지(deptList.jsp)에서 사용할 수 있도록 저장
+			request.setAttribute("deptlist", deptlist);
+			
+			// 4. 응답페이지(deptList.jsp)로 응답 위임처리 (request, response)
+			request.getRequestDispatcher("deptList.jsp").forward(request, response);
+		} else if ("fullnameList".equals(type)) {
+			//1. 파라미터 값 추출 (이 작업은 파라미터 값이 있으면 하고 없으면 패스하는 작업) - input
+			String fullname = request.getParameter("fullname");
+			
+			//2. DAO 사용해서 데이터 조회 - process
+			List<EmployeeVO> list = DAO.getFullnameList(fullname);
+			
+			//3. 조회된 데이터 request에 저장 - process
+			request.setAttribute("list", list);
+			
+			//4. 응답페이지로 위임처리 - output
+			request.getRequestDispatcher("fullnameList.jsp").forward(request, request);
+		}
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("FrontController.doPost실행");
+		request.setCharacterEncoding("UTF-8");
+		doGet(request, response);
+	}
+
+}

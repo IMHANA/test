@@ -1,0 +1,9 @@
+package com.bc.controller;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/fullname")
+public class FullnameController extends HttpServlet {
+
+}
