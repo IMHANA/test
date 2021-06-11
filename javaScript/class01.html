@@ -4,39 +4,40 @@
       <meta charset="utf-8">
       <title>WEB1 - JavaScript</title>
       <script>
+          function LinksSetColor(color){
+              let alist = document.querySelectorAll('a');
+              let i = 0;
+              while(i < alist.length) {
+                  alist[i].style.color = color;
+                  i = i + 1;
+              }
+          }
+          function BodySetColor(color) {
+              document.querySelector('body').style.color = color;
+          }
+          function BodySetBackgroundColor(color) {
+              document.querySelector('body').style.backgroundColor = color;
+          }
           function nightDayHandler(self) {
               let target = document.querySelector('body');
-              if(self.value === 'night') {
-                  target.style.backgroundColor = 'black';
-                  target.style.color = 'white';
+              if (self.value === 'night') {
+                  BodySetBackgroundColor('black');
+                  BodySetColor('white');
                   self.value = 'day';
 
-                  let alist = document.querySelectorAll('a');
-                  let i = 0;
-                  while(i < alist.length) {
-                      alist[i].style.color = 'pink';
-                      i = i + 1;
-                  }
+                  LinksSetColor('pink');
               } else {
-                  target.style.backgroundColor = 'white';
-                  target.style.color = 'black';
+                  BodySetBackgroundColor('white');
+                  BodySetColor('black');
                   self.value = 'night';
 
-                  let alist = document.querySelectorAll('a');
-                  let i = 0;
-                  while(i < alist.length) {
-                      alist[i].style.color = 'blue';
-                      i = i + 1;
-                  }
+                  LinksSetColor('blue');
               }
           }
       </script>
   </head>
   <body>
       <h1><a href="index.html">WEB</a></h1>
-      <input type="button" value="night" onclick="
-        nightDayHandler(this);
-      ">
       <input type="button" value="night" onclick="
         nightDayHandler(this);
       ">
