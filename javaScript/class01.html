@@ -5,18 +5,19 @@
       <title></title>
   </head>
   <body>
-    <h1>Loop</h1>
-    <ul>
+    <h1>Loop & Array</h1>
     <script>
-        document.write('<li>1</li>');
+      let coworkers = ['hana', 'two', 'three', 'four', 'five']
+    </script>
+    <h2>Co workers</h2>
+    <ul>
+      <script>
         let i = 0;
-        while(i < 3) {
-          document.write('<li>2</li>');
-          document.write('<li>3</li>');
+        while(i < coworkers.length){
+          document.write('<li><a href="http://alwaysbom.xyz"'+coworkers[i]+'">'+coworkers[i]+'</a></li>');
           i = i + 1;
         }
-        document.write('<li>4</li>');
-    </script>
+      </script>
     </ul>
   </body>
 </html>
