@@ -5,19 +5,41 @@
       <title></title>
   </head>
   <body>
-    <h1>Loop & Array</h1>
-    <script>
-      let coworkers = ['hana', 'two', 'three', 'four', 'five']
-    </script>
-    <h2>Co workers</h2>
-    <ul>
-      <script>
+    <h1><a href="index.html">WEB</a></h1>
+    <input id="night_day" type="button" value="night" onclick="
+      let target = document.querySelector('body');
+      if(this.value === 'night'){
+        target.style.backgroundColor = 'black';
+        target.style.color = 'white';
+        this.value = 'day';
+
+        let alist = document.querySelectorAll('a');
         let i = 0;
-        while(i < coworkers.length){
-          document.write('<li><a href="http://alwaysbom.xyz"'+coworkers[i]+'">'+coworkers[i]+'</a></li>');
+        while(i < alist.length){
+          alist[i].style.color = 'pink';
           i = i + 1;
         }
-      </script>
-    </ul>
+      } else {
+        target.style.backgroundColor = 'white';
+        target.style.color = 'black';
+        this.value = 'night';
+
+        let alist = document.querySelectorAll('a');
+        let i = 0;
+        while(i < alist.length){
+          alist[i].style.color = 'blue';
+          i = i + 1;
+        }
+      }
+    ">
+    <ol>
+      <li><a href="1.html">HTML</a></li>
+      <li><a href="2.html">CSS</a></li>
+      <li><a href="3.html">JavaScript</a></li>
+    </ol>
+    <h2>JavaScript</h2>
+    <p>
+      JavaScript (often abbreviated as JS, is a high-level, dynamic, weakly typed, prototype-based, multi-paradigm, and interpreted programming language. Alongside HTML and CSS, JavaScript is one of the three core technologies of World Wide Web content production. It is used to make webpages interactive and provide online programs, including video games. The majority of websites employ it, and all modern web browsers support it without the need for plug-ins by means of a built-in JavaScript engine. Each of the many JavaScript engines represent a different implementation of JavaScript, all based on the ECMAScript specification, with some engines not supporting the spec fully, and with many engines supporting additional features beyond ECMA.
+    </p>
   </body>
 </html>
