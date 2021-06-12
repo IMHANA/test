@@ -3,21 +3,57 @@
   <head>
       <meta charset="utf-8">
       <title>WEB1 - JavaScript</title>
+      <script>
+          let Links = {
+              setColor:function (color) {
+                  let alist = document.querySelectorAll('a');
+                  let i = 0;
+                  while (i < alist.length) {
+                      alist[i].style.color = color;
+                      i = i + 1;
+                  }
+              }
+          }
+
+          let Body = {
+              setColor:function (color) {
+                  document.querySelector('body').style.color = color;
+              },
+              setBackgroundColor:function (color){
+                  document.querySelector('body').style.backgroundColor = color;
+              }
+          }
+          function nightDayHandler(self) {
+              let target = document.querySelector('body');
+              if (self.value === 'night') {
+                  Body.setBackgroundColor('black');
+                  Body.setColor('white');
+                  self.value = 'day';
+
+                  Links.setColor('pink');
+              } else {
+                  Body.setBackgroundColor('white');
+                  Body.setColor('black');
+                  self.value = 'night';
+
+                  Links.setColor('blue');
+              }
+          }
+      </script>
   </head>
   <body>
-    <h1>Object</h1>
-    <h2>Create</h2>
-    <script>
-        let self = {
-            "name":"hana",
-            "age":"00"
-        };
-        document.write("name : " + self.name + "<br>");
-        document.write("age : " + self.age + "<br>");
-        self.favorite = 'watching movie';
-        document.write("favorite : " + self.favorite + "<br>");
-        self["data food"] = "coffee";
-        document.write("data food : " + self['data food'] + "<br>");
-    </script>
+      <h1><a href="index.html">WEB</a></h1>
+      <input type="button" value="night" onclick="
+            nightDayHandler(this);
+          ">
+      <ol>
+          <li><a href="1.html">HTML</a></li>
+          <li><a href="2.html">CSS</a></li>
+          <li><a href="3.html">JavaScript</a></li>
+      </ol>
+          <h2>JavaScript</h2>
+          <p>
+              JavaScript (often abbreviated as JS, is a high-level, dynamic, weakly typed, prototype-based, multi-paradigm, and interpreted programming language. Alongside HTML and CSS, JavaScript is one of the three core technologies of World Wide Web content production. It is used to make webpages interactive and provide online programs, including video games. The majority of websites employ it, and all modern web browsers support it without the need for plug-ins by means of a built-in JavaScript engine. Each of the many JavaScript engines represent a different implementation of JavaScript, all based on the ECMAScript specification, with some engines not supporting the spec fully, and with many engines supporting additional features beyond ECMA.
+          </p>
   </body>
 </html>
