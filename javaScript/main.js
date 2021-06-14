@@ -1,25 +1,66 @@
-function User(age, name) {
-    this.age = age;
-    this.name = name;
-    this.get_data = function() {
-        return this.age;
+class User1 {
+    constructor() {
+        this.name = 'hana';
+        this.age = 30;
     }
-}
-const hana = new User(10, 'Hana');
-console.log(typeof hana);
-console.log(hana.age, hana.get_data());
-
-function User1(age, name) {
-    this.age = age;
-    this.name = name;
+    get_message() {
+        return 'Hi!!';
+    }
 };
 
-User1.prototype.message = function() {
-    return 'Yes!!!';
+const hana = new User1();
+console.log(typeof hana, hana.name, hana.age, hana.get_message());
+
+
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
 }
 
-User1.prototype.hobby = 'coding';
+class User extends Animal {
+    constructor(name, age) {
+        super(name);
+        this.age = age;
+    }
+}
 
-const hanadul = new User1(11, 'HANA');
-console.log(hanadul.age, hanadul.name, hanadul.hobby);
-console.log(hanadul.message());
+const hanadul = new User('hana', 30);
+console.log(hanadul.name, hanadul.age);
+
+class Animal2 {
+    constructor(name) {
+        this.name = name;
+    }
+
+    get_message() {
+        return 'Hello';
+    }
+}
+
+class User2 extends Animal2 {
+    constructor(name, age) {
+        super(name);
+        this.age = age;
+    }
+    get_message() {
+        return 'Hello!!!!!';
+    }
+}
+const hana2 = new User2('hanadul', 35);
+console.log(hana2.name, hana2.age, hana2.get_message());
+
+class test {
+    constructor(name) {
+        this.name = name;
+    }
+    get_message() {
+        return 'Hello';
+    }
+}
+
+test.prototype.age = 100;
+
+const dul = new test('HANA');
+console.log(dul.hasOwnProperty('name'));
+console.log(dul.hasOwnProperty('age'));
