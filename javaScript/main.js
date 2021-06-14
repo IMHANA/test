@@ -1,66 +1,44 @@
-class User1 {
-    constructor() {
-        this.name = 'hana';
-        this.age = 30;
-    }
-    get_message() {
-        return 'Hi!!';
-    }
-};
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+console.log('end');
 
-const hana = new User1();
-console.log(typeof hana, hana.name, hana.age, hana.get_message());
-
-
-class Animal {
-    constructor(name) {
-        this.name = name;
-    }
+const data = ['Hana', 30, true];
+for (let i = 0; i < data.length; i++) {
+    console.log(typeof data[i], data[i]);
 }
 
-class User extends Animal {
-    constructor(name, age) {
-        super(name);
-        this.age = age;
-    }
+const data2 = ['Hana', 30, true];
+for(let item of data2) {
+    console.log(item);
 }
 
-const hanadul = new User('hana', 30);
-console.log(hanadul.name, hanadul.age);
-
-class Animal2 {
-    constructor(name) {
-        this.name = name;
-    }
-
-    get_message() {
-        return 'Hello';
+const data3 = {
+    name: 'Hana',
+    age: 20,
+    brand: "fun-coding",
+    get_message: function() {
+        return 'Hello !!'
     }
 }
-
-class User2 extends Animal2 {
-    constructor(name, age) {
-        super(name);
-        this.age = age;
-    }
-    get_message() {
-        return 'Hello!!!!!';
-    }
-}
-const hana2 = new User2('hanadul', 35);
-console.log(hana2.name, hana2.age, hana2.get_message());
-
-class test {
-    constructor(name) {
-        this.name = name;
-    }
-    get_message() {
-        return 'Hello';
-    }
+for (let property in data3) {
+    console.log(property, data3[property]);
 }
 
-test.prototype.age = 100;
+// console.log(Object.entries(data3));
+// console.log(Object.keys(data3));
+// console.log(Object.values(data3));
 
-const dul = new test('HANA');
-console.log(dul.hasOwnProperty('name'));
-console.log(dul.hasOwnProperty('age'));
+
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+
+for (let i = 0; i < 5; i++) {
+    if (i === 3) {
+        break;
+    }
+    console.log(i);
+}
