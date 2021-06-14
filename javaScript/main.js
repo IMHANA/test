@@ -1,27 +1,40 @@
-function FunCoding(name) {
-    console.log(name);
+const emptyObject = {};
+
+emptyObject.name = "HANA";
+emptyObject.age = 10;
+emptyObject.get_data = function() {
+    return 1 + 2;
 }
-FunCoding('hana');
 
-function FunCoding2(name) {
-    return 'Hi! ' + name;
-}
-console.log(FunCoding2('Hana'));
+console.log(emptyObject.age, emptyObject.get_data());
 
-let func = (name) => console.log(name + ' yes!');
-func('Hana');
+const user = {
+    age: 20,
+    name: "Hana",
+    get_data: function() {
+        return 1 + 2;
+    }
+};
 
-let f1 = () => "Hello !!";
-f1();
+console.log(user);
+console.log(typeof user, user);
+console.log(user.age);
+console.log(user.name);
+user.age = 25;
+console.log(user.age);
+console.log(user.get_data());
 
-let f2 = age => age * 2;
-console.log(f2(1));
-f2();
+const user2 = {
+    age: 10,
+    name: "HanaDul",
+    details: {
+        hobby: "coding",
+        major: "japanese",
+        get_details: function (item) {
+            return item * 2;
+        }
+    }
+};
 
-let f3 = (item1, item2) => {
-    return item1 * item2;
-}
-console.log(f3(1, 3));
-
-let f3_1 = (item1, item2) => item1 * item2;
-console.log(f3_1(1, 4));
+console.log(user2.age, user2.name);
+console.log(user2.details.hobby, user2.details.major, user2.details.get_details);
