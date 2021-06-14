@@ -1,29 +1,25 @@
-const user = {
-    age: 20,
-    name: 'Hana',
-    details: {
-        hobby: 'coding',
-        major: 'Japanese',
-        get_hobby: function() {
-            return this.hobby;
-        }
-        // arrow function은 this로 객체 불러올 수 없음
-        //get_hobby: () => this.hobby;
-    }
-};
-console.log(user.details.get_hobby());
-
-const user1 = {
-    age: 10,
-    name: "Hana Dul",
-    get get_age() {
+function User(age, name) {
+    this.age = age;
+    this.name = name;
+    this.get_data = function() {
         return this.age;
-    },
-    set set_age(value) {
-        this.age = value;
     }
+}
+const hana = new User(10, 'Hana');
+console.log(typeof hana);
+console.log(hana.age, hana.get_data());
+
+function User1(age, name) {
+    this.age = age;
+    this.name = name;
 };
 
-console.log(user1.get_age);
-user1.set_age = 2;
-console.log(user1.get_age);
+User1.prototype.message = function() {
+    return 'Yes!!!';
+}
+
+User1.prototype.hobby = 'coding';
+
+const hanadul = new User1(11, 'HANA');
+console.log(hanadul.age, hanadul.name, hanadul.hobby);
+console.log(hanadul.message());
