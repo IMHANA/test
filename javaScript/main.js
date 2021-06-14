@@ -1,40 +1,29 @@
-const emptyObject = {};
-
-emptyObject.name = "HANA";
-emptyObject.age = 10;
-emptyObject.get_data = function() {
-    return 1 + 2;
-}
-
-console.log(emptyObject.age, emptyObject.get_data());
-
 const user = {
     age: 20,
-    name: "Hana",
-    get_data: function() {
-        return 1 + 2;
-    }
-};
-
-console.log(user);
-console.log(typeof user, user);
-console.log(user.age);
-console.log(user.name);
-user.age = 25;
-console.log(user.age);
-console.log(user.get_data());
-
-const user2 = {
-    age: 10,
-    name: "HanaDul",
+    name: 'Hana',
     details: {
-        hobby: "coding",
-        major: "japanese",
-        get_details: function (item) {
-            return item * 2;
+        hobby: 'coding',
+        major: 'Japanese',
+        get_hobby: function() {
+            return this.hobby;
         }
+        // arrow function은 this로 객체 불러올 수 없음
+        //get_hobby: () => this.hobby;
+    }
+};
+console.log(user.details.get_hobby());
+
+const user1 = {
+    age: 10,
+    name: "Hana Dul",
+    get get_age() {
+        return this.age;
+    },
+    set set_age(value) {
+        this.age = value;
     }
 };
 
-console.log(user2.age, user2.name);
-console.log(user2.details.hobby, user2.details.major, user2.details.get_details);
+console.log(user1.get_age);
+user1.set_age = 2;
+console.log(user1.get_age);
