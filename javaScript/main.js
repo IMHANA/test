@@ -1,32 +1,49 @@
-const data = [1, 2, 3, 'Hana', true];
+const data = [1, 2, 3];
+data.push(5);
 console.log(data);
-console.log(data.length);
+data.push('Hana');
+console.log(data);
+console.log(data.pop());
+console.log(data);
+data.shift();
+console.log(data);
 
-const data1 = new Array();
-data1[0] = 1;
-data1[1] = 2;
-console.log(data1[0], data1[1], data1[data1.length - 1]);
-console.log(data1);
-data1[1] = 'fun-coding';
-console.log(data1);
+const data1 = [1, 2];
+const data2 = ['Hana', 'dul'];
+let conData = data1.concat(data2);
+console.log(conData);
 
-const data2 = [1, 2, 3, 'Hana', 'fun-coding'];
-console.log(data2);
-data2.splice(1, 3);
-console.log(data2);
+let jdata = conData.join('*');
+console.log(jdata, typeof jdata);
+conData.reverse();
+console.log(conData);
 
-const data01 = [1, 2, 'Hana', null];
+const data3 = [1, 2, 3, 4, 5, 6];
+let data4 = data3.slice(1, 3);
+console.log(data4);
+data3.forEach(item => {
+    console.log(item);
+});
 
-const data02 = [
-    { name: 'Hana', age: 30 },
-    { name: 'Alex', age: 40 }
+const datamap = data3.map(item => item * 2);
+console.log(datamap);
+console.log(datamap.indexOf(6));
+
+const myArray3 = [
+    {
+        id: 1,
+        name: 'Hana Im'
+    },
+    {
+        id: 2,
+        name: 'Alex'
+    }
 ];
 
-const data03 = [
-    [1, 2, 3],
-    [4, 5, 6]
-];
+console.log(myArray3.indexOf('Alex'));
+console.log(myArray3.findIndex(item => item.name === 'Alex'));
+console.log(myArray3.find(item => item.name === 'Alex'));
 
-console.log(data01[0]);
-console.log(data02[0].name);
-console.log(data03[0][2]);
+let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let even = myArray.filter(item => item % 2 === 0);
+console.log(even, typeof even);
