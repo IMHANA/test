@@ -1,49 +1,28 @@
-const data = [1, 2, 3];
-data.push(5);
-console.log(data);
-data.push('Hana');
-console.log(data);
-console.log(data.pop());
-console.log(data);
-data.shift();
-console.log(data);
+const myArray = [1, 2];
 
-const data1 = [1, 2];
-const data2 = ['Hana', 'dul'];
-let conData = data1.concat(data2);
-console.log(conData);
+if (myArray.length === 0) {
+    console.log('빈 배열입니다.')
+} else {
+    console.log('배열에 값이 있습니다.')
+}
+myArray.length === 0 ? console.log('빈 배열'):console.log('배열에 값이 있음');
 
-let jdata = conData.join('*');
-console.log(jdata, typeof jdata);
-conData.reverse();
-console.log(conData);
+function printData(item, name='Hana') {
+    console.log(item, name);
+}
+printData(1);
 
-const data3 = [1, 2, 3, 4, 5, 6];
-let data4 = data3.slice(1, 3);
-console.log(data4);
-data3.forEach(item => {
-    console.log(item);
-});
+const data = {
+    name: "Hana",
 
-const datamap = data3.map(item => item * 2);
-console.log(datamap);
-console.log(datamap.indexOf(6));
+    hobby: 'coding'
+};
 
-const myArray3 = [
-    {
-        id: 1,
-        name: 'Hana Im'
-    },
-    {
-        id: 2,
-        name: 'Alex'
-    }
-];
+let { name:myName, age:myAge=25, special='python' } = data;
+console.log(myName, myAge, special);
 
-console.log(myArray3.indexOf('Alex'));
-console.log(myArray3.findIndex(item => item.name === 'Alex'));
-console.log(myArray3.find(item => item.name === 'Alex'));
+let data2 = [1, 2, 3];
 
-let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let even = myArray.filter(item => item % 2 === 0);
-console.log(even, typeof even);
+const [item3, item4, item5, item6="Hana"] = data2;
+
+console.log(item3, item4, item5, item6);
