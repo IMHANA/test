@@ -1,28 +1,42 @@
-const myArray = [1, 2];
+let a = 1;
+let b = 2;
 
-if (myArray.length === 0) {
-    console.log('빈 배열입니다.')
-} else {
-    console.log('배열에 값이 있습니다.')
+[a, b] = [b, a];
+console.log(a, b);
+
+function getData() {
+    return [10, 20];
 }
-myArray.length === 0 ? console.log('빈 배열'):console.log('배열에 값이 있음');
 
-function printData(item, name='Hana') {
-    console.log(item, name);
+let [c, d, e] = getData();
+console.log(c, d, e);
+
+let data = 'Hana Im, fun-coding, coding';
+let [name, brand, hobby] = data.split(',');
+
+console.log(data.split(','));
+console.log(name, brand);
+
+
+function getData2(a, b, ...rest) {
+    console.log(rest);
 }
-printData(1);
 
-const data = {
-    name: "Hana",
+getData2(1, 2, 3, 4, 5);
 
-    hobby: 'coding'
-};
+const data3 = [1, 2, 3];
 
-let { name:myName, age:myAge=25, special='python' } = data;
-console.log(myName, myAge, special);
+console.log(data3);
+console.log(...data3);
 
-let data2 = [1, 2, 3];
+function func(a, b, c, d) {
+    console.log(b, c);
+}
 
-const [item3, item4, item5, item6="Hana"] = data2;
+const data4 = [1, 2, 3, 4];
+func(...data4);
 
-console.log(item3, item4, item5, item6);
+const data01 = [1, 2, 3];
+const data02 = [0, ...data01, 4, 5];
+
+console.log(data02);
