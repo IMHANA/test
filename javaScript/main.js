@@ -1,44 +1,32 @@
-for (let i = 0; i < 5; i++) {
-    console.log(i);
-}
-console.log('end');
+const data = [1, 2, 3, 'Hana', true];
+console.log(data);
+console.log(data.length);
 
-const data = ['Hana', 30, true];
-for (let i = 0; i < data.length; i++) {
-    console.log(typeof data[i], data[i]);
-}
+const data1 = new Array();
+data1[0] = 1;
+data1[1] = 2;
+console.log(data1[0], data1[1], data1[data1.length - 1]);
+console.log(data1);
+data1[1] = 'fun-coding';
+console.log(data1);
 
-const data2 = ['Hana', 30, true];
-for(let item of data2) {
-    console.log(item);
-}
+const data2 = [1, 2, 3, 'Hana', 'fun-coding'];
+console.log(data2);
+data2.splice(1, 3);
+console.log(data2);
 
-const data3 = {
-    name: 'Hana',
-    age: 20,
-    brand: "fun-coding",
-    get_message: function() {
-        return 'Hello !!'
-    }
-}
-for (let property in data3) {
-    console.log(property, data3[property]);
-}
+const data01 = [1, 2, 'Hana', null];
 
-// console.log(Object.entries(data3));
-// console.log(Object.keys(data3));
-// console.log(Object.values(data3));
+const data02 = [
+    { name: 'Hana', age: 30 },
+    { name: 'Alex', age: 40 }
+];
 
+const data03 = [
+    [1, 2, 3],
+    [4, 5, 6]
+];
 
-let i = 0;
-while (i < 5) {
-    console.log(i);
-    i++;
-}
-
-for (let i = 0; i < 5; i++) {
-    if (i === 3) {
-        break;
-    }
-    console.log(i);
-}
+console.log(data01[0]);
+console.log(data02[0].name);
+console.log(data03[0][2]);
