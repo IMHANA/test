@@ -1,20 +1,25 @@
-console.log('안녕안녕');
-setTimeout(() => {
-    console.log('출력해주세오');
-}, 3000);
-console.log('Hana');
+const runCode = new Promise(
+    // function (resolve, reject) {
+    (resolve, reject) => {
+        setTimeout(() => {
+            let num = {};
+            if(num > 11) {
+                resolve(num);
+            } else {
+                reject('this is an error');
+            }
+        }, 1000);
+    }
+);
 
+runCode.then((item) => {
+    console.log('success', item);
+    }, (err) => {
+        console.log(err);
+    }).then(() => {
+        console.log('by duldul');
+    }, () => {
+        console.log('error2');
+    });
 
-console.log('안녕안녕');
-function desc(callback) {
-    setTimeout(() => {
-    console.log('하나입니다.');
-    callback();
-    }, 3000);
-}
-
-function desc2() {
-    console.log('둘입니다.');
-}
-
-desc(desc2);
+    console.log('dul');
