@@ -1,0 +1,8 @@
+.rectangle {
+    width: 300px;
+    height: 300px;
+    --start: hsl(0, 100%, 50%);
+    --end: hsl(322, 100%, 50%);
+    background-image: linear-gradient(-135deg, var(--start), var(--end));
+    /*--start, --end는 css 변수이다.*/
+}

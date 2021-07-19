@@ -1,7 +1,5 @@
-const a = 5;
-const b = 2;
-const myName = "hana";
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-console.log("hello " + myName);
+// const mon = "mon";
+// const tue = "tue";
+// const wed= "wed";
+// const thu = "thu";
+// const fri = "fri";
